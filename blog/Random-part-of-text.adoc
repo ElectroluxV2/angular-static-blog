@@ -1,0 +1,38 @@
+:title: Random part of text
+:description: Blog post
+:category: Default
+
+== Random part of text
+
+Your task is to create program that reads user input and prints back random world.
+
+== Example
+
+Input: `Hi! Um, hello? Are you there? Cathrine? ... Catherine?!` +
+Output: `Cathrine`
+
+#Notice trimmed world in output#
+
+Input: `Please, let this be just a really creepy nightmare.` +
+Output: `Please`
+
+== Notes
+
+Your program must be split into multiple functions, for example:
+[source, rust]
+----
+fn main() { } // Loop logic
+----
+
+[source, rust]
+----
+fn get_input_from_user() -> &str { } // Read user's input, trim it and returns it.
+----
+
+[source, rust]
+----
+fn get_random_word_from_string() -> &str { } // Returns random word from string
+----
+
+Word printed back must not contain any punctuation marks +
+and the word can not be just punctuation marks e.g. `...`
