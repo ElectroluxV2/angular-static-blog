@@ -25,7 +25,6 @@
     "@angular/platform-browser-dynamic": "~13.1.0",
     "@angular/platform-server": "~13.1.0",
     "@angular/router": "~13.1.0",
-    "@angular/service-worker": "~13.1.0",
     "@nguniversal/express-engine": "^13.0.1",
     "blob-polyfill": "^6.0.20211015",
     "cross-blob": "^3.0.0",
