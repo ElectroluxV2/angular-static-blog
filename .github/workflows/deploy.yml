@@ -19,14 +19,14 @@ jobs:
           npm run blog:render
           npm run prerender
 
-    - name: 📂 Sync files
-      uses: sand4rt/ftp-deployer@v1.3
-      with:
-        sftp: false
-        host: ${{ secrets.server }}
-        username: ${{ secrets.username }}
-        password: ${{ secrets.password }}
-        remote_folder: ./domains/budziszm.pl/public_html/
-        local_folder: ./dist/angular-static-blog/browser/
-        cleanup: true
+      - name: 📂 Sync files
+        uses: sand4rt/ftp-deployer@v1.3
+        with:
+          sftp: false
+          host: ${{ secrets.server }}
+          username: ${{ secrets.username }}
+          password: ${{ secrets.password }}
+          remote_folder: ./domains/budziszm.pl/public_html/
+          local_folder: ./dist/angular-static-blog/browser/
+          cleanup: true
 
