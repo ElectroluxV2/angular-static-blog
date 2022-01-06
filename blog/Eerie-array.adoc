@@ -1,0 +1,42 @@
+:title: Eerie array
+:description: Rust exercise
+:category: Exercise
+
+== Eerie array
+
+Write a program which performs the following operations on an array of positive integers: +
+
+. `A _n_` - adds number *_n_* to the array after the last one added by this command. Start from the beginning of the array. Print `FULL` if the array is full,
+
+. `E` -  calculate and print the average of the stored numbers,
+
+. `P` - print elements without repetitions in order of their first appearance,
+
+. `M` - print index of the *_first existing_* element, whose sum of its *_existing_* neighbours is the greatest,
+
+. `Q` - exit the program.
+
+== Example
+
+Input: +
+`A 2` +
+`A 1` +
+`A 10` +
+`A 5` +
+`A 1` +
+`A 5` +
+`E` +
+`P` +
+`M` +
+`Q` +
+
+Output: +
+`4` +
+`2 1 10 5` +
+`1`
+
+== Notes
+
+Size of the array for tests is at most *1000*, but it should be easy to change in the code. Make sure that the program doesn't allow the user to leave the bounds of an array. Operation `M` appears after at least one operation `A`.
+
+Try to split different parts of program into separate functions
