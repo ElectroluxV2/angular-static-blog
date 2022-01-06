@@ -8,12 +8,12 @@ Fill below gaps in code snippets in order to pass assertion.
 
 [source,rust]
 ----
-assert_eq!(format!("{} days", /* TODO */), "69 days");
+assert_eq!(format!("{} days", /* TODO: */), "69 days");
 ----
 
 [source,rust]
 ----
-assert_eq!(format!(/* TODO */, "Alice", "Bob"), "Alice, this is Bob. Bob, this is Alice.");
+assert_eq!(format!(/* TODO: */, "Alice", "Bob"), "Alice, this is Bob. Bob, this is Alice.");
 ----
 
 [source,rust]
@@ -23,17 +23,17 @@ assert_eq!(format!("Let me see, today we have: {}, {0} and {subject}.", /* TODO:
 
 [source,rust]
 ----
-assert_eq!(format!(/* TODO */, 2137), "100001011001");
+assert_eq!(format!(/* TODO: */, 2137), "100001011001");
 ----
 
 [source,rust]
 ----
-assert_eq!(format!(/* TODO */, number = 1, width = 6)), "000001");
+assert_eq!(format!(/* TODO: */, number = 1, width = 6)), "000001");
 ----
 
 [source,rust]
 ----
-assert_eq!(format!(/* TODO */, 5.2), "05.20€");
+assert_eq!(format!(/* TODO: */, 5.2), "05.20€");
 ----
 
 == Notes
