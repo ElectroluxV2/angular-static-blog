@@ -19,6 +19,7 @@ export class BlogService {
 
   private async prefetchAllData() {
     const blog = await firstValueFrom(this.http.get<Blog>("http://localhost:4200/assets/blog/blog.json")) as Blog;
+    blog.posts = blog.posts.sort((a, b) => a.datetime.localeCompare(b.datetime));
     this.cache.set('blog', blog);
 
     for (const post of blog.posts) {
