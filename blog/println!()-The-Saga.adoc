@@ -1,0 +1,53 @@
+:title: println!() - The Saga
+:description: First part of printing line macro The Saga
+:category: Default
+
+== println!() - The Saga
+
+Fill below code snippets to match their outputs.
+
+[source,rust]
+----
+println!("{} days", /* TODO */);
+----
+Desired output: `69 days`
+ +
+ +
+[source,rust]
+----
+println!("/* TODO */", "Alice", "Bob");
+----
+Desired output: `Alice, this is Bob. Bob, this is Alice.`
+ +
+ +
+[source,rust]
+----
+println!("Let me see, today we have: {}, {0} and {subject}.", /* TODO: insert only one variable here. */);
+----
+Desired output: `Let me see, today we have: Math, Math and Math.`
+ +
+ +
+[source,rust]
+----
+println!("/* TODO */", 2137);
+----
+Desired output: `100001011001`
+ +
+ +
+[source,rust]
+----
+println!("/* TODO */", number = 1, width = 6);
+----
+Desired output: `000001`
+ +
+ +
+[source,rust]
+----
+println!("/* TODO */", 5.2);
+----
+Desired output: `05.20€`
+
+== Notes
+You can modify #only# parts marked as `/* TODO */`
+
+> https://doc.rust-lang.org/std/fmt/index.html[This] format!() documentation might come in handy.
