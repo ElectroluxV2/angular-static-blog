@@ -1,2 +1,4 @@
 *
 !*.adoc
+!assets/
+!assets/**
