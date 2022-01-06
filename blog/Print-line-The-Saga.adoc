@@ -4,48 +4,37 @@
 
 == println!() - The Saga
 
-Fill below code snippets to match their outputs.
+Fill below gaps in code snippets in order to pass assertion.
 
 [source,rust]
 ----
-println!("{} days", /* TODO */);
+assert_eq!(format!("{} days", /* TODO */), "69 days");
 ----
-Desired output: `69 days`
-+
-+
+
 [source,rust]
 ----
-println!("/* TODO */", "Alice", "Bob");
+assert_eq!(format!("/* TODO */", "Alice", "Bob"), "Alice, this is Bob. Bob, this is Alice.");
 ----
-Desired output: `Alice, this is Bob. Bob, this is Alice.`
-+
-+
+
 [source,rust]
 ----
-println!("Let me see, today we have: {}, {0} and {subject}.", /* TODO: insert only one variable here. */);
+assert_eq!(format!("Let me see, today we have: {}, {0} and {subject}.", /* TODO: insert only one variable here. */), "Let me see, today we have: Math, Math and Math.");
 ----
-Desired output: `Let me see, today we have: Math, Math and Math.`
-+
-+
+
 [source,rust]
 ----
-println!("/* TODO */", 2137);
+assert_eq!(format!("/* TODO */", 2137), "100001011001");
 ----
-Desired output: `100001011001`
-+
-+
+
 [source,rust]
 ----
-println!("/* TODO */", number = 1, width = 6);
+assert_eq!(format!("/* TODO */", number = 1, width = 6)), "000001");
 ----
-Desired output: `000001`
-+
-+
+
 [source,rust]
 ----
-println!("/* TODO */", 5.2);
+assert_eq!(format!("/* TODO */", 5.2), "05.20€");
 ----
-Desired output: `05.20€`
 
 == Notes
 You can modify #only# parts marked as `/* TODO */`
