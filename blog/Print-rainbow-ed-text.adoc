@@ -16,7 +16,7 @@ fn main() { } // General logic
 
 [source,rust]
 ----
-fn get_input_from_user() -> &str { } // Read user's input, trim it and returns it.
+fn get_input_from_user() -> String { } // Read user's input, trim it and returns it.
 ----
 
 [source,rust]
