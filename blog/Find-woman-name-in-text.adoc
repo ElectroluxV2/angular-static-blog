@@ -34,12 +34,12 @@ fn get_input_from_user() -> String { } // Read user's input, trim it and returns
 
 [source, rust]
 ----
-fn get_woman_name_from_text(text: &str) -> Option<T> { } // Returns woman name from user input, consumes user input
+fn get_woman_name_from_text(text: &str) -> Option<String> { } // Returns woman name from user input, consumes user input
 ----
 
 [source,rust]
 ----
-fn print_message_based_on_name_presence(name: Option<T>) { } // Prints message
+fn print_message_based_on_name_presence(name: Option<String>) { } // Prints message
 ----
 
 Your program must use _Option_ and _Match_.
