@@ -36,3 +36,5 @@ fn get_random_word_from_string() -> &str { } // Returns random word from string
 
 Word printed back must not contain any punctuation marks +
 and the word can not be just punctuation marks e.g. `...`
+
+> https://doc.rust-lang.org/std/primitive.char.html#method.is_ascii_punctuation[This] `char` documentation might come in handy.
