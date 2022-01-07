@@ -12,5 +12,5 @@ Read more about them https://docs.microsoft.com/en-us/windows/console/console-vi
 
 ____
 ``Console Virtual Terminal Sequences`` are enabled by default only on Linux and macOS. +
-To use them on Windows, please refer to https://superuser.com/a/1300251[this] answer.
+To use them on Windows, please refer to https://gist.github.com/fnky/458719343aabd01cfb17a3a4f7296797[this] answer.
 ____
