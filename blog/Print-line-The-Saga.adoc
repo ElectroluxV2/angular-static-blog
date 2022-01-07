@@ -28,7 +28,7 @@ assert_eq!(format!(/* TODO: */, 2137), "100001011001");
 
 [source,rust]
 ----
-assert_eq!(format!(/* TODO: */, number = 1, width = 6)), "000001");
+assert_eq!(format!(/* TODO: */, number = 1, width = 6), "000001");
 ----
 
 [source,rust]
