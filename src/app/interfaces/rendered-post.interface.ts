@@ -3,5 +3,5 @@ export interface RenderedPost {
   title: string;
   description: string;
   category: string;
-  datetime: string;
+  modificationTimestamps: string[];
 }
