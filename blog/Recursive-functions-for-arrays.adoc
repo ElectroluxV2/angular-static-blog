@@ -1,0 +1,67 @@
+:title: Recursive functions for arrays
+:description: Blog post
+:category: Default
+
+== Recursive functions for arrays
+
+By using only these functions:
+
+[source,rust]
+----
+fn length(a: &str) -> usize {
+    a.chars().count()
+}
+----
+[source,rust]
+----
+fn head(a: &str) -> char {
+    a.chars().nth(0).unwrap()
+}
+----
+[source,rust]
+----
+fn tail(a: &str) -> &str {
+    &a[1..]
+}
+----
+
+Implement logic inside these functions:
+[source,rust]
+----
+fn reverse(a: &str) {
+    /* TODO: */
+}
+----
+[source,rust]
+----
+fn common_part(a: &str, b: &str) {
+    /* TODO: */
+}
+----
+
+So that the following program:
+[source,rust]
+----
+fn main() {
+    reverse("abcdefghi");
+    println!();
+    common_part("111258", "113789");
+}
+----
+Will print that output: +
+`ihgfedcba` +
+`118`
+
+And this program:
+[source,rust]
+----
+fn main() {
+    common_part("1112589", "113789");
+}
+----
+Will print that output: +
+`1189`
+
+= Notes
+You may not use any other function than specified such as `.chars().nth()`. +
+Your source code shall leverage rust’s expressions, try to find a good balance between omitting semicolons and readability.
