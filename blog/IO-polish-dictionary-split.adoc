@@ -1,7 +1,7 @@
 :description: Split one big file into a bunch of smaller.
 :category: Exercise
 
-= IO polish dictionary split
+= IO - polish dictionary split
 Mateusz Budzisz
 
 Your task is to split polish dictionary into multiple files by length of word.
