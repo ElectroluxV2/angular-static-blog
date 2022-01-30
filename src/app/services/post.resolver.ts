@@ -2,19 +2,25 @@ import { Injectable } from '@angular/core';
 import {
   Resolve,
   RouterStateSnapshot,
-  ActivatedRouteSnapshot
+  ActivatedRouteSnapshot, Router
 } from '@angular/router';
-import { Observable } from 'rxjs';
-import { BlogService } from "./blog.service";
-import { RenderedPost } from "../interfaces/rendered-post.interface";
+import { BlogService } from './blog.service';
+import { Post } from '../interfaces/post.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PostResolver implements Resolve<boolean> {
-  constructor(private blogService: BlogService) { }
+export class PostResolver implements Resolve<Promise<Post>> {
+  constructor(private blogService: BlogService, private router: Router) { }
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<RenderedPost> | Promise<RenderedPost> | any {
-    return this.blogService.getPost(`${route.paramMap.get('slug')}.html`);
+  async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<Post> {
+    try {
+      return await this.blogService.getPost(route.paramMap.get('slug') ?? '');
+    } catch (e) {
+      await this.router.navigateByUrl('/404', {
+        skipLocationChange: true
+      });
+      throw e;
+    }
   }
 }

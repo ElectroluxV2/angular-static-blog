@@ -1,51 +1,37 @@
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { firstValueFrom } from "rxjs";
-import { Blog } from "../interfaces/blog.interface";
-import { isPlatformBrowser } from "@angular/common";
+import { HttpClient } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
+import { Blog } from '../interfaces/blog';
+import { Post } from '../interfaces/post.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BlogService {
-
-  private cache: Map<string, string | Blog> = new Map<string, string | Blog>();
+  #blog?: Blog;
 
   constructor(private http: HttpClient, @Inject(PLATFORM_ID) platformId: string) {
-    this.prefetchAllData()
-      .then(() => isPlatformBrowser(platformId) && localStorage.setItem('cache', JSON.stringify([...this.cache])))
-      .catch(() => isPlatformBrowser(platformId) && (this.cache = new Map<string, string | Blog>(JSON.parse(localStorage.getItem('cache') ?? ""))));
-  }
 
-  private async prefetchAllData() {
-    const blog = await firstValueFrom(this.http.get<Blog>("http://localhost:4200/assets/blog/blog.json")) as Blog;
-    blog.posts = blog.posts.sort((a, b) => a.modificationTimestamps[0].localeCompare(b.modificationTimestamps[0]));
-    this.cache.set('blog', blog);
-
-    for (const post of blog.posts) {
-      this.cache.set(post.filename, await firstValueFrom(this.http.get(`http://localhost:4200/assets/blog/${post.filename}`, {
-        'responseType': 'text'
-      })) as string);
-    }
-  }
-
-  private async sleep(ms: number): Promise<void> {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
-
-  private async getCachedItem<Type>(key: string): Promise<Type> {
-    while (!this.cache.has(key)) {
-      await this.sleep(10);
-    }
-
-    return this.cache.get(key) as unknown as Type;
   }
 
   public async getBlog(): Promise<Blog> {
-    return await this.getCachedItem('blog');
+    if (!!this.#blog) return this.#blog;
+
+    const metadata = await firstValueFrom(this.http.get<{posts: Post[]}>('/assets/blog/blog.json'));
+    this.#blog = new Blog(metadata.posts.map(post => [post.document.slug, post]));
+
+    return this.#blog;
   }
 
-  public async getPost(filename: string): Promise<string> {
-    return await this.getCachedItem(filename);
+  public async getPost(slug: string): Promise<Post> {
+    if (!this.#blog) await this.getBlog();
+    if (!this.#blog?.has(slug)) throw Error(`Post '${slug}' does not exists!`);
+
+    const post = this.#blog.get(slug);
+    if (!post.document.html) {
+      post.document.html = await firstValueFrom(this.http.get(`/assets/blog/${slug}.html`, {responseType: 'text'}));
+    }
+
+    return post;
   }
 }

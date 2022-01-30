@@ -10,7 +10,7 @@ const ROUTES_TXT = 'prerender-routes.txt';
 
 highlightJsExt.register(asciidoctor.Extensions);
 
-const renderedPosts = [];
+const renderedPostsMetadata = [];
 
 fs.readdirSync(BLOG_PATH).forEach(file => {
   if (!file.endsWith('.adoc')) return;
@@ -26,29 +26,39 @@ fs.readdirSync(BLOG_PATH).forEach(file => {
     }
   });
 
-  const modificationTimestamps = [];
-  const gitLog = spawnSync('git', ['log', '--pretty=%cI', '--', `blog/${file}`], {
+  const timestamps = [];
+  const gitLog = spawnSync('git', ['log', '--follow', '--pretty=%cI', '--', `blog/${file}`], {
     encoding : 'utf8'
   });
 
   for (const datetime of gitLog.stdout.split('\n')) {
     if (datetime === "") continue;
-    modificationTimestamps.push(new Date(datetime));
+    timestamps.push(datetime);
   }
 
-  modificationTimestamps.sort();
-  modificationTimestamps.reverse();
+  timestamps.sort();
 
   // Save metadata, use later in Angular service
-  const { doctitle: title, description, category } = document.getAttributes();
-  renderedPosts.push({
-    filename: file.replace('.adoc', '.html'),
-    title,
-    description,
-    category,
-    modificationTimestamps
-  });
+  const metadata = {
+    document: {
+      title: document.getDocumentTitle(),
+      description: document.getAttribute('description', 'Empty'),
+      category: document.getAttribute('category', 'Exercise'),
+      slug: document.getAttribute('doc' + 'name')
+    },
+    authors: document.getAuthors().map(author => {
+      return {
+        name: author.getName(),
+        initials: author.getInitials()
+      }
+    }),
+    timestamps: timestamps
+  };
+
+  renderedPostsMetadata.push(metadata);
 });
 
-fs.writeFileSync(RENDERED_JSON, JSON.stringify({posts: renderedPosts}));
-fs.writeFileSync(ROUTES_TXT, renderedPosts.map(post => `/blog/${post.filename.replace('.html', '')}`).join('\n'));
+renderedPostsMetadata.sort((a, b) => a.timestamps[0] > b.timestamps[0] ? 1 : -1);
+
+fs.writeFileSync(RENDERED_JSON, JSON.stringify({posts: renderedPostsMetadata}, null, 2));
+fs.writeFileSync(ROUTES_TXT, renderedPostsMetadata.map(post => `/blog/${post.document.slug}`).join('\n'));

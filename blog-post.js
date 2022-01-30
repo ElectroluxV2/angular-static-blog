@@ -13,9 +13,8 @@ rl.question('Title: ', title => {
   const slug = slugify(title);
 
   fs.writeFileSync(`${BLOG_PATH}/${slug}.adoc`,
-    `:title: ${title}\n` +
-    ':description: Blog post\n' +
-    ':category: Default\n' +
+    ':description: Empty\n' +
+    ':category: Exercise\n' +
     '\n' +
     `== ${title}\n` +
     '\n' +

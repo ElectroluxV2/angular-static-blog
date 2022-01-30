@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
-import { Blog } from "../../interfaces/blog.interface";
+import { ActivatedRoute } from '@angular/router';
+import { Blog } from '../../interfaces/blog';
 
 @Component({
   selector: 'app-home',

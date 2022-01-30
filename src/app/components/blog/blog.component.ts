@@ -1,6 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
-import { RenderedPost } from "../../interfaces/rendered-post.interface";
+import { ActivatedRoute } from '@angular/router';
+import { Post } from '../../interfaces/post.interface';
 
 @Component({
   selector: 'app-blog',
@@ -10,7 +10,7 @@ import { RenderedPost } from "../../interfaces/rendered-post.interface";
   encapsulation: ViewEncapsulation.Emulated
 })
 export class BlogComponent {
-  public post: RenderedPost = this.activatedRoute.snapshot.data['post'];
+  public post: Post = this.activatedRoute.snapshot.data['post'];
 
   constructor(private activatedRoute: ActivatedRoute) { }
 }

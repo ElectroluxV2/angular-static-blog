@@ -5,8 +5,8 @@ import {
   ActivatedRouteSnapshot
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { BlogService } from "./blog.service";
-import { Blog } from "../interfaces/blog.interface";
+import { BlogService } from './blog.service';
+import { Blog } from '../interfaces/blog';
 
 @Injectable({
   providedIn: 'root'
