@@ -1,0 +1,38 @@
+:title: IO polish dictionary split
+:description: Blog post
+:category: Default
+
+== IO polish dictionary split
+
+Your task is to split polish dictionary into multiple files by length of word.
+
+= Getting dictionary
+You can get the latest version of dictionary https://sjp.pl/slownik/growy/[here].
+
+= Expected result
+Your program shall create multiple files, e.g.:
+
+> 8.txt
+[source]
+----
+...
+aaronowa
+aaronową
+aaronowe
+...
+----
+
+> 5.txt
+[source]
+----
+...
+żywym
+żywże
+żyzna
+żyzną
+żyzne
+...
+----
+
+= Notes
+Pay attention to what method are you using when getting a length of string. Remember that dictionary is utf-8 encoded.
