@@ -1,8 +1,9 @@
-:title: Print rainbow-ed text
-:description: Blog post
-:category: Default
+:description: Learn when to use enums.
+:category: Exercise
 
-== Print rainbow-ed text
+= Print rainbow-ed text
+Mateusz Budzisz
+
 Your task is to read user input and then print it back, but every character must be different colored in the order of the colors appearing in the rainbow.
 
 == Notes

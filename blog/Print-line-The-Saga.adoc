@@ -1,8 +1,8 @@
-:title: Print line - The Saga
-:description: First part of printing line macro The Saga
-:category: Default
+:description: First part of printing line macro The Saga.
+:category: Exercise
 
-== println!() - The Saga
+= println!() - The Saga
+Mateusz Budzisz
 
 Fill below gaps in code snippets in order to pass assertion.
 

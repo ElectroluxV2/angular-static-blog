@@ -1,8 +1,8 @@
-:title: Random part of text
-:description: Blog post
-:category: Default
+:description: Leverage rust's rich string related STD.
+:category: Exercise
 
-== Random part of text
+= Random part of text
+Mateusz Budzisz
 
 Your task is to create program that reads user input and prints back random world.
 

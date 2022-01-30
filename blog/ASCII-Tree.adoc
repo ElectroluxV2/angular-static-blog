@@ -1,8 +1,8 @@
-:title: ASCII Tree
-:description: Blog post
-:category: Default
+:description: Drawing animated ASCII tree.
+:category: Exercise
 
-== ASCII Tree
+= ASCII Tree
+Mateusz Budzisz
 
 Your task is to create ASCII tree.
 

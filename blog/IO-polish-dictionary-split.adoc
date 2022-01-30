@@ -1,15 +1,15 @@
-:title: IO polish dictionary split
-:description: Blog post
-:category: Default
+:description: Split one big file into a bunch of smaller.
+:category: Exercise
 
-== IO polish dictionary split
+= IO polish dictionary split
+Mateusz Budzisz
 
 Your task is to split polish dictionary into multiple files by length of word.
 
-= Getting dictionary
+== Getting dictionary
 You can get the latest version of dictionary https://sjp.pl/slownik/growy/[here].
 
-= Expected result
+== Expected result
 Your program shall create multiple files, e.g.:
 
 > 8.txt
@@ -34,5 +34,5 @@ aaronowe
 ...
 ----
 
-= Notes
+== Notes
 Pay attention to what method are you using when getting a length of string. Remember that dictionary is utf-8 encoded.

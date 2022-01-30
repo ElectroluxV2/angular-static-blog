@@ -1,8 +1,8 @@
-:title: Find woman name in text
-:description: Rust exercise
+:description: Find word in string that matches condition.
 :category: Exercise
 
-== Find woman name in text
+= Find woman name in text
+Mateusz Budzisz
 
 Your task is to get input from user, print message depending on if input contains woman name until name equals `Laura`
 

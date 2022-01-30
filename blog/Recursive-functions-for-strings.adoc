@@ -1,8 +1,8 @@
-:title: Recursive functions for arrays
-:description: Blog post
-:category: Default
+:description: Learn how you can use recursion to implement some logic with limited subset of functions.
+:category: Exercise
 
-== Recursive functions for arrays
+= Recursive functions for strings
+Mateusz Budzisz
 
 By using only these functions:
 
@@ -62,6 +62,6 @@ fn main() {
 Will print that output: +
 `1189`
 
-= Notes
+== Notes
 You may not use any other function than specified such as `.chars().nth()`. +
 Your source code shall leverage rust’s expressions, try to find a good balance between omitting semicolons and readability.

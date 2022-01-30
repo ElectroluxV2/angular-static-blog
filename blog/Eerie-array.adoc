@@ -1,8 +1,8 @@
-:title: Eerie array
-:description: Rust exercise
+:description: Try your knowledge about boundaries of arrays.
 :category: Exercise
 
-== Eerie array
+= Eerie array
+Miłosz Chojnacki
 
 Write a program which performs the following operations on an array of positive integers: +
 

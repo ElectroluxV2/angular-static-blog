@@ -1,8 +1,8 @@
-:title: Print colored text in console
-:description: Blog post
-:category: Default
+:description: Learn how to use V-term Sequences.
+:category: Exercise
 
-== Print colored text in console
+= Print colored text in console
+Mateusz Budzisz
 
 Your task is to print in red `Goodbye Cruel World`.
 
