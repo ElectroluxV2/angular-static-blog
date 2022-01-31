@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { TransferHttpCacheModule } from '@nguniversal/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { TransferHttpCacheModule } from '@nguniversal/common';
   imports: [
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     BrowserModule.withServerTransition({appId: 'serverApp'}),
     TransferHttpCacheModule
   ],

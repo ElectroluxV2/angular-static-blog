@@ -109,6 +109,19 @@ html, body {
   height: 100%;
 }
 
+body {
+  overflow-y: scroll;
+}
+
+.overlap {
+  display: grid;
+  grid-template: 100% / 100%;
+}
+
+.overlap > * {
+  grid-area: 1 / 1 / 1 / 1;
+}
+
 .markdown-body {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;

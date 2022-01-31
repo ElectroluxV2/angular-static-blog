@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Blog } from '../../interfaces/blog';
+import { fadeAnimation } from '../../fade.animation';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  animations: [fadeAnimation],
+  host: { '[@fadeAnimation]': '' }
 })
 export class HomeComponent {
   public blog: Blog = this.activatedRoute.snapshot.data['blog'];
