@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Post } from '../../interfaces/post.interface';
 import { fadeAnimation } from '../../fade.animation';
@@ -7,8 +7,8 @@ import { fadeAnimation } from '../../fade.animation';
   selector: 'app-blog',
   templateUrl: './blog.component.html',
   styleUrls: ['./blog.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: true,
-  encapsulation: ViewEncapsulation.Emulated,
   animations: [fadeAnimation],
   host: { '[@fadeAnimation]': '' }
 })

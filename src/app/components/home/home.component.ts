@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Blog } from '../../interfaces/blog';
 import { fadeAnimation } from '../../fade.animation';
@@ -7,6 +7,7 @@ import { fadeAnimation } from '../../fade.animation';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [fadeAnimation],
   host: { '[@fadeAnimation]': '' }
 })
