@@ -13,7 +13,7 @@ export class BlogService {
   readonly #b;
 
   constructor(private http: HttpClient, @Inject(PLATFORM_ID) platformId: string) {
-    this.#b = isPlatformServer(platformId) ? 'http://localhost:8080' : '';
+    this.#b = isPlatformServer(platformId) ? 'http://localhost:4200' : '';
     isPlatformBrowser(platformId) && this.preloadAll();
   }
 
