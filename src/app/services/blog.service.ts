@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
 import { Blog } from '../interfaces/blog';
 import { Post } from '../interfaces/post.interface';
-import { isPlatformServer } from '@angular/common';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,9 @@ export class BlogService {
   #blog?: Blog;
   readonly #b;
 
-  constructor(private http: HttpClient, @Inject(PLATFORM_ID) private platformId: string) {
-    this.#b = isPlatformServer(this.platformId) ? 'http://localhost:8080' : '';
+  constructor(private http: HttpClient, @Inject(PLATFORM_ID) platformId: string) {
+    this.#b = isPlatformServer(platformId) ? 'http://localhost:8080' : '';
+    isPlatformBrowser(platformId) && this.preloadAll();
   }
 
   public async getBlog(): Promise<Blog> {
@@ -35,5 +36,13 @@ export class BlogService {
     }
 
     return post;
+  }
+
+  private async preloadAll() {
+    for (const metadata of (await this.getBlog()).posts) {
+      this.getPost(metadata.document.slug).then(() => {
+        console.info(`Preloaded ${metadata.document.slug}.`);
+      });
+    }
   }
 }
