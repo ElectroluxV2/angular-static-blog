@@ -1,13 +1,14 @@
 <a routerLink="/"><h3>Back to Home</h3></a>
 <h1 class="title">{{ post.document.title }}</h1>
 <aside class="summary">
-    <h6>{{ post.document.category }}
+    <h6>
+        <span>{{ post.document.category }}</span>
         <span class="not-important">created at</span>
-        <span class="date">{{ post.timestamps[0] | date: 'EEEE, MMMM d, y, hh:mm' }}</span>
+        <span class="date">{{ post.timestamps[0] | date: 'EEEE, d MMMM, y, hh:mm' }}</span>
         <span class="not-important">by</span>
-        <ng-container *ngFor="let author of post.authors">{{ author.name }}</ng-container>
-        <span class="not-important">, last update: </span>
-        <span class="date">{{ post.timestamps[post.timestamps.length - 1] | date: 'EEEE, MMMM d, y, hh:mm' }}</span>
+        <span *ngFor="let author of post.authors">{{ author.name }},</span>
+        <span class="not-important">last update: </span>
+        <span class="date">{{ post.timestamps[post.timestamps.length - 1] | date: 'EEEE, d MMMM, y, hh:mm' }}</span>
     </h6>
 </aside>
 <article class="content" [innerHTML]="post.document.html"></article>
