@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,5 +8,11 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  constructor(public router: Router) { }
+  @HostBinding('@.disabled')
+  public animationsDisabled = true;
+
+  constructor(public router: Router) {
+    // Enable animations using micro task (after component render)
+    setTimeout(() => this.animationsDisabled = false, 0);
+  }
 }
