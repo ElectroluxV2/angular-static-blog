@@ -19,20 +19,20 @@ Write a program which performs the following operations on an array of positive 
 == Example
 
 Input: +
-`A 2` +
-`A 1` +
-`A 10` +
-`A 5` +
-`A 1` +
-`A 5` +
-`E` +
-`P` +
-`M` +
-`Q` +
+`A 2`
+`A 1`
+`A 10`
+`A 5`
+`A 1`
+`A 5`
+`E`
+`P`
+`M`
+`Q`
 
 Output: +
-`4` +
-`2 1 10 5` +
+`4`
+`2 1 10 5`
 `1`
 
 == Notes
