@@ -10,7 +10,7 @@
     "dev:ssr": "ng run angular-static-blog:serve-ssr",
     "serve:ssr": "node dist/angular-static-blog/server/main.js",
     "build:ssr": "ng build && ng run angular-static-blog:server",
-    "prerender": "ng run angular-static-blog:prerender --routes-file prerender-routes.txt",
+    "prerender": "(http-server --port 8080 ./src> /dev/null 2>&1 &) && (ng run angular-static-blog:prerender --routes-file prerender-routes.txt) ; (fuser -k 8080/tcp)",
     "blog:render": "node blog-render.js",
     "blog:post": "node blog-post.js"
   },
@@ -41,6 +41,7 @@
     "asciidoctor": "^2.2.6",
     "asciidoctor-highlight.js": "^0.4.0",
     "slugify": "^1.6.5",
-    "typescript": "~4.5.2"
+    "typescript": "~4.5.2",
+    "http-server": "~14.1.0"
   }
 }
