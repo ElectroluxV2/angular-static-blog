@@ -1,16 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
-import { BlogResolver } from '../../services/blog.resolver';
-
-const routes: Routes = [{
-  path: '',
-  component: HomeComponent,
-  resolve: {
-    blog: BlogResolver
-  }
-}];
+import { HomeRoutingModule } from './home-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +9,7 @@ const routes: Routes = [{
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    HomeRoutingModule
   ]
 })
 export class HomeModule { }

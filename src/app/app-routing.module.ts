@@ -5,8 +5,11 @@ const routes: Routes = [{
   path: 'blog',
   loadChildren: () => import('./components/blog/blog.module').then(m => m.BlogModule)
 }, {
-  path: '**',
+  path: '',
   loadChildren: () => import('./components/home/home.module').then(m => m.HomeModule)
+}, {
+  path: '**',
+  redirectTo: '404'
 }];
 
 @NgModule({

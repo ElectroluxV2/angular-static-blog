@@ -5,7 +5,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { TransferHttpCacheModule } from '@nguniversal/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { UrlSerializer } from '@angular/router';
+import { TrailingSlashUrlSerializer } from './services/trailing-slash-url-serializer';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule.withServerTransition({appId: 'serverApp'}),
     TransferHttpCacheModule
   ],
-  providers: [],
+  providers: [{
+    provide: UrlSerializer,
+    useClass: TrailingSlashUrlSerializer
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
