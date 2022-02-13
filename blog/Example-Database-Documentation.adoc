@@ -8,6 +8,7 @@ The exactly same database is being used in production on regatta aggregating ser
 = Tables
 
 * Sailors
+
 [source, sql]
 -----
 -- Holds every information about sailor you may ever want to know,
