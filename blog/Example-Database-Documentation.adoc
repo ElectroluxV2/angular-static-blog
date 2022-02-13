@@ -60,3 +60,26 @@ create table clubs (
     unique (club_id)
 );
 ----
+
+* Places
+
+[source, sql]
+----
+-- As simple as it possibly can be, regatta needs a place to be located at.
+-- A single place can host multiple (possibly none) regattas.
+drop table if exists places cascade;
+create table places (
+    -- We may not differ places by their name nor location.
+    -- Moreover, name can be used as place for more information.
+    -- E.g., : Warsaw, Slip zone 1 (temporary one) is different (and should be different) from Warsaw, Slip zone 1.
+    place_id bigserial,
+
+    -- Geolocation e.g., (54.51793,18.551069).
+    location point,
+    name varchar(512) not null,
+
+    primary key (place_id),
+    unique (place_id),
+    unique (location, name) -- We cannot have duplicated data.
+);
+----
