@@ -37,3 +37,26 @@ create table sailors (
     unique (sailor_id)
 );
 -----
+
+* Clubs
+
+[source, sql]
+----
+-- Holds every information about club
+drop table if exists clubs cascade;
+create table clubs (
+    -- Clubs could be identified by their short name,
+    -- but since we do not know length of that name
+    -- and it can contain some non ascii characters it is rather bad idea.
+    club_id bigserial,
+
+    -- As clubs self  regulates naming,
+    -- they may have an abbreviation of the name that we cannot guess from the full name.
+    -- Furthermore, it is more convenient to use that shorter version in some (unfortunately not every) cases.
+    short_name varchar(64) not null,
+    full_name varchar(256) not null,
+
+    primary key (club_id),
+    unique (club_id)
+);
+----
