@@ -22,7 +22,7 @@ create table sailors (
 
     -- Using boolean here could be optimal,
     -- but since char is the same disk space overhead,
-    -- we should really leave char for better readability.
+    -- we should really leave char for sake of readability.
     -- Furthermore, no need to complicate with custom enum type,
     -- and hence simple check is sufficient.
     sex char check (sex IN ('F', 'M')) not null,
