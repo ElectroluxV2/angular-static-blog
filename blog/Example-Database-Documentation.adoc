@@ -1,11 +1,12 @@
 :description: Example Database Documentation
 :category: Example
 
-== Example Database Documentation
+= Example Database Documentation
+Mateusz Budzisz
 
 The exactly same database is being used in production on regatta aggregating service.
 
-= Tables
+== Tables
 
 * Sailors
 
