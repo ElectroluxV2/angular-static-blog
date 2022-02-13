@@ -83,3 +83,29 @@ create table places (
     unique (location, name) -- We cannot have duplicated data.
 );
 ----
+
+* Regattas
+
+[source, sql]
+----
+drop table if exists regattas cascade;
+create table regattas (
+    -- As the name is a string, it shall not be primary key.
+    regatta_id bigserial,
+
+    place_id bigserial references places(place_id) not null,
+
+    -- Count of worst (the highest score) races to exclude from final results.
+    exclusions bigint not null,
+
+    begin_date date not null,
+    end_date date not null,
+    name varchar(512) not null,
+
+    primary key (regatta_id),
+    unique (regatta_id),
+    unique (name, place_id) -- We cannot have duplicated data.
+);
+-- Year is commonly used within where closure, e.g., when generating calendars or calculating annually cups.
+create index regattas_year_index on regattas(begin_date desc nulls last);
+----
