@@ -1,0 +1,37 @@
+:description: Example Database Documentation
+:category: Example
+
+== Example Database Documentation
+
+The exactly same database is being used in production on regatta aggregating service.
+
+= Tables
+
+* Sailors
+[source, sql]
+-----
+-- Holds every information about sailor you may ever want to know,
+-- including personal stuff,
+-- but not feature flags – these should be inside some specific tables.
+drop table if exists sailors cascade;
+create table sailors (
+     -- Sailors can't be identified by sail numbers,
+     -- as they tend to be used by multiple owners,
+     -- not to mention sailor can change it freely too.
+    sailor_id bigserial,
+
+    -- Using boolean here could be optimal,
+    -- but since char is the same disk space overhead,
+    -- we should really leave char for better readability.
+    -- Furthermore, no need to complicate with custom enum type,
+    -- and hence simple check is sufficient.
+    sex char check (sex IN ('F', 'M')) not null,
+
+    birth_date date not null,
+    given_name varchar(128) not null,
+    family_name varchar(128) not null,
+
+    primary key (sailor_id),
+    unique (sailor_id)
+);
+-----
